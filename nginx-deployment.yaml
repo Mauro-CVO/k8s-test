@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx    # If you use an image from an open-source image registry, enter the image name. If you use an image in My Images, obtain the image path from SWR.
+        imagePullPolicy: Always
+        name: nginx
+      imagePullSecrets:
+      - name: default-secret
