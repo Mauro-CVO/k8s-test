@@ -1,0 +1,15 @@
+CREATE FOREIGN TABLE GCJL_OBS
+(
+        like traffic_data.GCJL
+)
+SERVER gsmpp_server 
+OPTIONS (
+        encoding 'utf8',
+        location 'obs://dws-demo-la-south-2/traffic-data/gcxx',
+        format 'text',
+        delimiter ',',
+        access_key 'VKKHSYHOANTCKKYRDJLM',
+        secret_access_key '5rQGBOlgHOR2NuYKiJqpJF9YQENENhOB6r8r7tnT',
+        chunksize '64',
+        IGNORE_EXTRA_DATA 'on'
+);
